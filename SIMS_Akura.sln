@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS_Akura", "SIMS_Akura.csproj", "{963D0397-27F8-46BF-8AA3-324AB70281E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{963D0397-27F8-46BF-8AA3-324AB70281E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963D0397-27F8-46BF-8AA3-324AB70281E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963D0397-27F8-46BF-8AA3-324AB70281E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963D0397-27F8-46BF-8AA3-324AB70281E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E33509E-11B8-459E-92BB-D67325AB2E29}
+	EndGlobalSection
+EndGlobal
