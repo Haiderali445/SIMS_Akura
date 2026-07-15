@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultLayout.master.cs" Inherits="SIMS_Akura.LayOuts.DefaultLayout" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIMS Akura Modern</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Modern CSS -->
+    <link href="<%= ResolveUrl("~/Content/Site.css") %>" rel="stylesheet" />
+</head>
+<body>
+    <form runat="server">
+
+        <input type="checkbox" id="sidebarCheckbox" hidden>
+
+
+
+        <div class="layout-wrapper d-flex flex-column min-vh-100">
+
+            <div class="d-flex flex-grow-1 sidebar-wrapper">
+
+                <!-- Sidebar -->
+                <nav id="sidebar" class="sidebar shadow-lg">
+                    <div class="sidebar-header text-center py-3">
+                        <div class="brand-logo">
+                            <div class="orbit"></div>
+                            <h3 class="fw-bold mb-0 sidebar-text">Akura</h3>
+                            <small class="text-light opacity-75 ms-1">SIMS</small>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled components">
+                        <!-- Dashboard -->
+                        <li>
+                            <a href="<%= ResolveUrl("~/UI/Dashboard.aspx") %>">
+                                <i class="fa-solid fa-chart-line fa-lg"></i>
+                                <span class="sidebar-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- Master Data -->
+                        <li>
+                            <a href="#masterSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa-solid fa-database fa-lg"></i>
+                                <span class="sidebar-text">Master Data</span>
+                            </a>
+                            <ul class="collapse list-unstyled" id="masterSubmenu">
+                                <li><a href="<%= ResolveUrl("~/UI/ProductPage.aspx") %>"><i class="fa-solid fa-box"></i><span class="submenu-text">Products</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/CategoryPage.aspx") %>"><i class="fa-solid fa-tags"></i><span class="submenu-text">Categories</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/UnitPage.aspx") %>"><i class="fa-solid fa-ruler-combined"></i><span class="submenu-text">Units</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/SupplierPage.aspx") %>"><i class="fa-solid fa-truck"></i><span class="submenu-text">Suppliers</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/CustomerPage.aspx") %>"><i class="fa-solid fa-user-group"></i><span class="submenu-text">Customers</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/AccountPage.aspx") %>"><i class="fa-solid fa-wallet"></i><span class="submenu-text">Accounts</span></a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Purchasing -->
+                        <li>
+                            <a href="#purchaseSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa-solid fa-cart-flatbed fa-lg"></i>
+                                <span class="sidebar-text">Purchasing</span>
+                            </a>
+                            <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                                <li><a href="<%= ResolveUrl("~/UI/PurchasePage.aspx") %>"><i class="fa-solid fa-file-invoice"></i><span class="submenu-text">New Purchase</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/PurchaseHistory.aspx") %>"><i class="fa-solid fa-clock-rotate-left"></i><span class="submenu-text">Purchase History</span></a></li>
+                            </ul>
+                        </li>
+
+
+                        <!-- Finance -->
+                        <li>
+                            <a href="#financeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa-solid fa-money-check-dollar fa-lg"></i>
+                                <span class="sidebar-text">Finance</span>
+                            </a>
+                            <ul class="collapse list-unstyled" id="financeSubmenu">
+                                <li><a href="<%= ResolveUrl("~/UI/ExpensePage.aspx") %>"><i class="fa-solid fa-money-bill-wave"></i><span class="submenu-text">Expenses</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/TransactionPage.aspx") %>"><i class="fa-solid fa-exchange-alt"></i><span class="submenu-text">Transactions</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/AccountSummary.aspx") %>"><i class="fa-solid fa-wallet"></i><span class="submenu-text">Accounts Summary</span></a></li>
+                            </ul>
+                        </li>
+                        <!-- Admin / Settings -->
+                        <li>
+                            <a href="#adminSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa-solid fa-gear fa-lg"></i>
+                                <span class="sidebar-text">Admin</span>
+                            </a>
+                            <ul class="collapse list-unstyled" id="adminSubmenu">
+                                <li><a href="<%= ResolveUrl("~/UI/UsersPage.aspx") %>"><i class="fa-solid fa-user-shield"></i><span class="submenu-text">Users</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/RolesPage.aspx") %>"><i class="fa-solid fa-lock"></i><span class="submenu-text">Roles & Permissions</span></a></li>
+                                <li><a href="<%= ResolveUrl("~/UI/AuditLogs.aspx") %>"><i class="fa-solid fa-list-check"></i><span class="submenu-text">Audit Logs</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+
+                <!-- Main area -->
+                <div class="flex-grow-1 d-flex flex-column">
+                    <header class="topbar d-flex justify-content-between align-items-center px-3 shadow-sm">
+                        <label for="sidebarCheckbox" id="sidebarToggle" class="btn btn-light btn-sm rounded-circle mb-0">
+                            <i class="fa-solid fa-bars"></i>
+                        </label>
+                        <!-- Breadcrumb (auto-filled by JS) -->
+                        <nav class="breadcrumb-nav d-none d-md-block">
+                            <ol id="breadcrumbTrail" class="breadcrumb mb-0 small">
+                                <li class="breadcrumb-item"><a href="<%= ResolveUrl("~/UI/Default.aspx") %>">Home</a></li>
+                                <li class="breadcrumb-item active" id="breadcrumbCurrent" aria-current="page">Dashboard</li>
+                            </ol>
+                        </nav>
+                        <a href="<%= ResolveUrl("~/UI/SalesPage.aspx") %>"><i class="fa-solid fa-cart-plus"></i><span class="submenu-text">Sale</span></a>
+
+                        <!-- Global search bar -->
+                        <div class="flex-grow-1 mx-3 d-none d-md-block">
+                            <div class="input-group input-group-sm">
+                                <input id="globalSearch" type="search" class="form-control" placeholder="Search products, invoices..." aria-label="Global search" />
+                                <button id="btnGlobalSearch" class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Notification + Theme -->
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="dropdown">
+                                <button class="btn btn-light btn-sm position-relative" id="notifBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-bell"></i>
+                                    <span id="notifBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow" style="width: 300px;">
+                                    <li>
+                                        <h6 class="dropdown-header">Notifications</h6>
+                                    </li>
+                                    <li>
+                                        <div id="notifList" class="small p-2">No notifications</div>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a href="<%= ResolveUrl("~/UI/Notifications.aspx") %>" class="dropdown-item text-center small">View all</a></li>
+                                </ul>
+                            </div>
+
+                            <button id="btnDarkMode" class="btn btn-light btn-sm" title="Toggle theme">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+
+
+                            <div class="dropdown">
+                                <a class="dropdown-toggle text-body d-flex align-items-center" data-bs-toggle="dropdown" href="#">
+                                    <i class="fa-solid fa-user-circle fa-lg me-1"></i>
+                                    <asp:Label ID="lblUser" runat="server" Text="Admin"></asp:Label>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow">
+                                    <li><a class="dropdown-item" href="<%= ResolveUrl("~/UI/Profile.aspx") %>">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <asp:Button ID="btnLogout" runat="server" CssClass="dropdown-item text-danger" Text="Logout" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- main content -->
+                    <main class="content flex-grow-1 p-4">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                    </main>
+
+                    <footer class="footer text-center py-3 shadow-sm mt-auto">
+                        <small>&copy; <%= DateTime.Now.Year %> Akura — Smart Inventory System</small>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="<%= ResolveUrl("~/Scripts/jquery-3.7.1.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/Site.js") %>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
