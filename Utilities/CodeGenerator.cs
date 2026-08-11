@@ -1,26 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SIMS_Akura.Utilities
 {
-    public class CodeGenerator
+    public static class CodeGenerator
     {
-        public static string GenerateCode(string prefix, string tableName, string columnName)
-        {
-            string query = $"SELECT MAX({columnName}) FROM {tableName}";
-            DataTable dt = DBConnection.ExecuteQuery(query);
+        private static readonly Random _rnd = new Random();
 
-            string newCode = $"{prefix}-001";
-            if (dt.Rows.Count > 0 && dt.Rows[0][0] != DBNull.Value)
+        
+        public static string GenerateCode(string prefix)
+        {
+            long randNum = _rnd.Next(100000000, 999999999); // 9-digit random number
+            return $"{prefix}-{randNum}";
+        }
+
+     
+        public static string GenerateBarcode(string productName)
+        {
+            using (var sha = SHA256.Create())
             {
-                string lastCode = dt.Rows[0][0].ToString();
-                int lastNumber = int.Parse(lastCode.Split('-')[1]);
-                newCode = $"{prefix}-{(lastNumber + 1):D3}";
+                var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(productName + DateTime.Now.Ticks));
+                return BitConverter.ToString(hash).Replace("-", "").Substring(0, 12).ToUpper();
             }
-            return newCode;
         }
     }
 }

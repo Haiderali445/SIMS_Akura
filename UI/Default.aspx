@@ -1,15 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SIMS_Akura.UI.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayOuts/DefaultLayout.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SIMS_Akura.UI.Default" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>WELCOME TO AKURA ~ A smart Inventory managment System
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+    </h1>
+</asp:Content>

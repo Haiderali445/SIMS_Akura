@@ -1,0 +1,275 @@
+﻿:root {
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 100px;
+    --sidebar-bg: #6c63ff;
+    --sidebar-bg-end: #5243c2;
+    --sidebar-hover: rgba(255,255,255,0.15);
+    --topbar-bg: #fff;
+    --body-bg: #f4f4f8;
+    --text-color: #2c2c2c;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--body-bg);
+    color: var(--text-color);
+    margin: 0;
+}
+
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, var(--sidebar-bg), var(--sidebar-bg-end));
+    color: #fff;
+    transition: width 0.35s ease;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 15px 15px 0;
+    padding-top: 1rem;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.sidebar-header h3 {
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+/* Menu base */
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0.6rem; /* breathing room top/bottom */
+}
+
+/* Top-level item spacing & sizing */
+.sidebar ul li {
+    list-style: none;
+    margin: 6px 0; /* vertical gap between menu blocks */
+}
+
+/* Link appearance: ensure comfortable hit target and vertical rhythm */
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.22s ease;
+    min-height: 44px; /* consistent row height */
+    line-height: 1;
+}
+
+/* Hover state */
+.sidebar ul li a:hover {
+    background: var(--sidebar-hover);
+    transform: translateX(3px);
+}
+
+/* Submenu items indentation and spacing */
+ul.components ul {
+    margin-top: 6px;
+    padding-left: 0.35rem;
+}
+
+ul.components ul li {
+    margin: 4px 0; /* smaller gap for submenu rows */
+}
+
+ul.components ul li a {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 38px;
+    border-radius: 8px;
+}
+
+/* Ensure submenu text aligns and has breathing */
+.submenu-text {
+    display: inline-block;
+    padding-left: 6px;
+}
+
+/* When a collapse group opens give it separation from next top-level item */
+.sidebar ul .collapse {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* Make collapse show state visually distinct and spaced */
+.sidebar ul .collapse.show > li > a {
+    background: rgba(255,255,255,0.03);
+}
+
+/* When sidebar is collapsed */
+body.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+/* Hide text but preserve spacing; center icons for easier tap */
+body.sidebar-collapsed .sidebar .sidebar-text,
+body.sidebar-collapsed .sidebar .submenu-text,
+body.sidebar-collapsed .sidebar small {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar ul {
+    padding: 0.6rem 0.35rem;
+}
+
+/* Make top-level links center when collapsed (icons centered) */
+body.sidebar-collapsed .sidebar ul li a {
+    justify-content: center;
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+    min-height: 56px; /* slightly taller touch target when collapsed */
+    border-radius: 10px;
+}
+
+/* Keep submenu collapse groups hidden when collapsed */
+body.sidebar-collapsed .sidebar ul .collapse {
+    display: none !important;
+}
+
+/* Topbar */
+.topbar {
+    height: 56px;
+    background: var(--topbar-bg);
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Main content */
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    background: var(--body-bg);
+}
+
+/* Footer */
+.footer {
+    padding: 0.8rem;
+    background: #fff;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+/* Breadcrumb */
+#breadcrumb {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* Transition */
+* {
+    transition: all 0.25s ease-in-out;
+}
+
+/* Breadcrumbs */
+.breadcrumb-nav {
+    flex: 1;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #6c63ff;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Notification bell + theme icons */
+#notifBtn i {
+    font-size: 1.1rem;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1b1f29;
+    color: #e6e6e6;
+}
+
+body.dark-mode .sidebar {
+    background: linear-gradient(180deg, #2c2f3a, #1e2028);
+}
+
+body.dark-mode .topbar {
+    background: #262a36;
+    color: #e6e6e6;
+}
+
+body.dark-mode .content,
+body.dark-mode .footer {
+    background-color: #1b1f29;
+    color: #e6e6e6;
+}
+
+/* Brand logo animation */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    position: relative;
+}
+
+.orbit {
+    width: 26px;
+    height: 26px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    position: relative;
+    animation: spin 4s linear infinite;
+}
+
+.orbit::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffca28;
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+    box-shadow: 0 0 6px rgba(255,202,40,0.8);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Accessibility: larger focus ring for keyboard users */
+.sidebar ul li a:focus,
+.sidebar ul li a:active {
+    outline: 2px solid rgba(255,255,255,0.18);
+    outline-offset: 2px;
+}
+
+/* Small screens: collapse becomes off-canvas — keep spacing consistent inside */
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        transform: translateX(-110%);
+        z-index: 1050;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    /* When open on mobile ensure internal spacing remains comfortable */
+    .sidebar ul { padding: 0.8rem 0.8rem; }
+    .sidebar ul li a { min-height: 48px; }
+    ul.components ul li a { padding-left: 32px; }
+}
